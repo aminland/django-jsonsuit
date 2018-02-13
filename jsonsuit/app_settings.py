@@ -20,20 +20,20 @@ AVAILABLE_THEMES = getattr(settings, 'JSONSUIT_AVAILABLE_THEMES', ['coy',
                                                                    'twilight'])
 WIDGET_THEME = getattr(settings, 'JSONSUIT_WIDGET_THEME', 'default')
 
-SYNTAX_HIGHLIGHTER_JS = getattr(settings, 'JSONSUIT_SYNTAX_HIGHLIGHTER_JS', ('jsonsuit/js/prism.js',))
+SYNTAX_HIGHLIGHTER_JS = getattr(settings, 'JSONSUIT_SYNTAX_HIGHLIGHTER_JS', ('jsonsuit/js/vendor.js',))
 SYNTAX_HIGHLIGHTER_CSS = getattr(settings, 'JSONSUIT_SYNTAX_HIGHLIGHTER_CSS', (
     'jsonsuit/css/prism-{}.css'.format(check_theme(WIDGET_THEME)),)
 )
 
 WIDGET_MEDIA_JS = getattr(settings, 'JSONSUIT_WIDGET_MEDIA_JS', SYNTAX_HIGHLIGHTER_JS + (
-    'jsonsuit/js/hjson.min.js', 'jsonsuit/js/jsonsuit.js',)
+    'jsonsuit/js/jsonsuit.js',)
 )
 WIDGET_MEDIA_CSS = getattr(settings, 'JSONSUIT_WIDGET_MEDIA_CSS', {
     'all': SYNTAX_HIGHLIGHTER_CSS + ('jsonsuit/css/jsonsuit.css',)
 })
 
 READONLY_WIDGET_MEDIA_JS = getattr(settings, 'JSONSUIT_READONLY_WIDGET_MEDIA_JS', SYNTAX_HIGHLIGHTER_JS + (
-    'jsonsuit/js/hjson.min.js', 'jsonsuit/js/readonly-jsonsuit.js',)
+    'jsonsuit/js/readonly-jsonsuit.js',)
 )
 READONLY_WIDGET_MEDIA_CSS = getattr(settings, 'JSONSUIT_READONLY_WIDGET_MEDIA_CSS', {
     'all': SYNTAX_HIGHLIGHTER_CSS + ('jsonsuit/css/jsonsuit.css',)

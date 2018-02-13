@@ -14,18 +14,21 @@
             button.textarea = textarea;
             button.code = code;
             button.suit = suit;
+            button.code.addEventListener("dblclick", toggle, false);
             button.addEventListener("click", toggle, false);
-            textarea.addEventListener("blur", function(e){validate(e.target)}, false);
-            validate(textarea);
+            textarea.addEventListener("blur", function(e){validate(e.target, true)}, false);
         }
     }
-    function validate(textarea) {
+    function validate(textarea, keep_format) {
         try {
-            textarea.value = JSON.stringify(Hjson.parse(textarea.value), null, 2)
+            if (keep_format)
+                textarea.value = Hjson.stringify(Hjson.rt.parse(textarea.value));
+            else 
+                textarea.value = JSON.stringify(Hjson.parse(textarea.value), null, 2)
             textarea.parentElement.classList.remove('errors')
             return true;
         } catch (error) {
-            textarea.value = '/*' + error.toString() + '*/\n' + textarea.value.replace(/(\/\*.*?\*\/)[\s]*/igm, '');
+            textarea.value = '/*' + error.toString() + '*/\n' + textarea.value.replace(\/\*(.|\n)*?\*[\s]*\/igu, '');
             textarea.parentElement.classList.add('errors');
         }
         return false;

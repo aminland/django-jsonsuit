@@ -22,7 +22,7 @@
     function validate(textarea, keep_format) {
         try {
             if (keep_format)
-                textarea.value = Hjson.rt.stringify(Hjson.rt.parse(textarea.value));
+                textarea.value = Hjson.rt.stringify(Hjson.rt.parse(textarea.value), {quotes: 'string', spaces: 2, condense: true });
             else 
                 textarea.value = JSON.stringify(Hjson.parse(textarea.value), null, 2)
             textarea.parentElement.classList.remove('errors')

@@ -11,6 +11,7 @@
             tabOverride.set(textarea);
             tabOverride.tabSize(4);
             validate(textarea);
+ 
             code.innerHTML = Prism.highlight(textarea.value, Prism.languages.json);
             button.textarea = textarea;
             button.code = code;
@@ -18,6 +19,7 @@
             button.code.addEventListener("dblclick", toggle, false);
             button.addEventListener("click", toggle, false);
             textarea.addEventListener("blur", function(e){validate(e.target, true)}, false);
+            textarea.closest('form').addEventListener('submit', function(e){ validate(textarea); }, false);
         }
     }
     function validate(textarea, keep_format) {

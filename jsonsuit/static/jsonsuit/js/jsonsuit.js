@@ -27,7 +27,7 @@
             if (keep_format)
                 textarea.value = Hjson.rt.stringify(Hjson.rt.parse(textarea.value), {quotes: 'string', bracesSameLine: true, spaces: 4 });
             else 
-                textarea.value = JSON.stringify(Hjson.parse(textarea.value), null, 2)
+                textarea.value = JSON.stringify(Hjson.parse(textarea.value), null, 4)
             textarea.parentElement.classList.remove('errors')
             return true;
         } catch (error) {

@@ -28,7 +28,7 @@
             textarea.parentElement.classList.remove('errors')
             return true;
         } catch (error) {
-            textarea.value = '/*' + error.toString() + '*/\n' + textarea.value.replace(\/\*(.|\n)*?\*[\s]*\/igu, '');
+            textarea.value = '/*' + error.toString() + '*/\n' + textarea.value.replace(/\/\*(.|\n)*?\*\/[\s]*/igu, '');
             textarea.parentElement.classList.add('errors');
         }
         return false;

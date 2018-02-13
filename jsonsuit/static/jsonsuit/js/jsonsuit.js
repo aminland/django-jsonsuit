@@ -19,7 +19,7 @@
             button.code.addEventListener("dblclick", toggle, false);
             button.addEventListener("click", toggle, false);
             textarea.addEventListener("blur", function(e){validate(e.target, true)}, false);
-            textarea.closest('form').addEventListener('submit', function(e){ validate(textarea); }, false);
+            document.querySelector('form').addEventListener('submit', function(e){ validate(textarea); });
         }
     }
     function validate(textarea, keep_format) {

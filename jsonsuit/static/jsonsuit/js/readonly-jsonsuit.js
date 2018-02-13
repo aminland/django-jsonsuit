@@ -4,7 +4,7 @@
 
         for (var i = 0; i < widgets.length; i++) {
             var code = widgets[i].querySelector('.suit code'),
-                prettyJSON = JSON.stringify(JSON.parse(code.dataset.raw), null, 2),
+                prettyJSON = JSON.stringify(Hjson.parse(code.dataset.raw), null, 2),
                 prettyHTML = Prism.highlight(prettyJSON, Prism.languages.json);
 
             code.innerHTML = prettyHTML;

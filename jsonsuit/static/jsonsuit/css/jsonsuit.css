@@ -1,6 +1,7 @@
 .jsonsuit textarea {
   width: 100%;
   max-width: 80vw;
+  font-family: monospace;
 }
 
 .jsonsuit pre {

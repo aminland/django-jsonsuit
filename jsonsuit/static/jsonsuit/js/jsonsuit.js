@@ -8,7 +8,7 @@
                 suit = widgets[i].querySelector('.suit'),
                 code = suit.querySelector('code'),
                 button = widgets[i].querySelector('button.toggle');
-
+            tabOverride.set(textarea);
             validate(textarea);
             code.innerHTML = Prism.highlight(textarea.value, Prism.languages.json);
             button.textarea = textarea;
